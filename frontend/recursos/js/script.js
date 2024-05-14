@@ -78,20 +78,33 @@
 
     const handleLogin = (event) => {
         event.preventDefault();
-
+    
         user.id = crypto.randomUUID();
-        user.image = loginInpImage.value
+        user.image = loginInpImage.value;
         user.name = loginInpName.value;
         user.color = loginInpColor.value;
-
+    
         loginGeral.style.display = "none";
         chatArea.style.display = "flex";
-
+    
         websocket = new WebSocket("ws://bate-papo-online-backend.onrender.com");
         websocket.onmessage = processMessage;
-
+    
+        websocket.addEventListener("open", () => {
+            console.log("Conectado ao servidor WebSocket.");
+        });
+    
+        websocket.addEventListener("error", (error) => {
+            console.error("Erro ao conectar ao servidor WebSocket:", error);
+        });
+    
+        websocket.addEventListener("close", () => {
+            console.log("Conexão WebSocket fechada.");
+        });
+    
         console.log(user);
     }
+    
 
     loginForm.addEventListener("submit", handleLogin);
 
