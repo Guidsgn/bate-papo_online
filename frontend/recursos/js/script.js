@@ -108,17 +108,22 @@
     const sendMessage = (event) => {
         event.preventDefault();
 
-        const message = {
-            userId: user.id,
-            userImg: user.image,
-            userName: user.name,
-            userColor: user.color,
-            content: chatInput.value
+        // Verificar se o websocket está definido
+        if (websocket && websocket.readyState === WebSocket.OPEN) {
+            const message = {
+                userId: user.id,
+                userImg: user.image,
+                userName: user.name,
+                userColor: user.color,
+                content: chatInput.value
+            }
+
+            websocket.send(JSON.stringify(message));
+
+            chatInput.value = "";
+        } else {
+            console.error("WebSocket não está disponível ou não conectado.");
         }
-
-        websocket.send(JSON.stringify(message));
-
-        chatInput.value = "";
     }
 
     chatForm.addEventListener("submit", sendMessage);
