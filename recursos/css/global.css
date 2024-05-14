@@ -1,0 +1,58 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&display=swap');
+
+/* Global */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    list-style: none;
+    text-decoration: none;
+}
+
+/* Vars. */
+
+:root {
+
+    /* Fontes */
+
+    --font-p: "Ubuntu Sans", sans-serif;
+    --font-r: "Spectral", serif;
+
+}
+
+/* Geral */
+
+body {
+    background: #151515;
+    z-index: 999;
+}
+
+main {
+    display: flex;
+    justify-content: flex-end;
+}
+
+aside {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    max-width: 20%;
+    height: 100dvh;
+    background: #101010;
+    z-index: 1000;
+}
+
+.interface {
+    width: 100%;
+    max-width: 80%;
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ... */
