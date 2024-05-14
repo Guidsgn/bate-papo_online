@@ -87,7 +87,7 @@
         loginGeral.style.display = "none";
         chatArea.style.display = "flex";
     
-        websocket = new WebSocket("ws://bate-papo-online-backend.onrender.com");
+        websocket = new WebSocket("wss://bate-papo-online-backend.onrender.com");
         websocket.onmessage = processMessage;
     
         websocket.addEventListener("open", () => {
